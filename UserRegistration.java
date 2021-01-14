@@ -39,7 +39,7 @@ class UserRegistrationMethods {
     static String lastName = "^[A-Z][a-zA-Z]{2,}$";
     static String email = "^[0-9a-zA-Z]+([.\\-_+][0-9a-zA-Z]+)*@[a-z0-9A-Z]+.[a-z]{2,4}([.][a-zA-Z]{2,})*$";
     static String mobile = "^91[ ][6-9][0-9]{9}$";
-    static String passwordR1 = "^[a-zA-Z0-9]{8,}$";
+    static String password = "^(?=.*[A-Z])[a-zA-Z0-9]{8,}$";
 
     public static void firstName() {
         while (true) {
@@ -101,25 +101,21 @@ class UserRegistrationMethods {
                 break;
             } else
                 System.out.println("******Invalid mobile Format , Try Again*******");
-
         }
-
     }
 
     public static void password() {
         while (true) {
-            System.out.println("Enter password with minimum 8 characters  : ");
+            System.out.println("Enter password with minimum 8 characters with atleast one UpperCase   : ");
             text = input.nextLine();
-            Pattern pattern = Pattern.compile(passwordR1);
+            Pattern pattern = Pattern.compile(password);
             Matcher matcher = pattern.matcher(text);
             if (matcher.matches()) {
                 System.out.println(">>>>Valid pattern>>>>");
                 break;
             } else
                 System.out.println("******Invalid password , Try Again*******");
-
         }
-
     }
-
 }
+
